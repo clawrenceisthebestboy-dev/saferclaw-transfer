@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleIdentifier</key>
+    <string>dev.clawrence.saferclaw-transfer</string>
+    <key>CFBundleName</key>
+    <string>SaferClaw Transfer</string>
+    <key>CFBundleDisplayName</key>
+    <string>SaferClaw Transfer</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.0</string>
+    <key>CFBundleExecutable</key>
+    <string>SaferClawTransfer</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>NSPrincipalClass</key>
+    <string>NSApplication</string>
+    <key>NSHighResolutionCapable</key>
+    <true/>
+    <key>LSMinimumSystemVersion</key>
+    <string>14.0</string>
+    <key>NSHumanReadableCopyright</key>
+    <string>© 2025 SaferClaw. Free Transfer Edition.</string>
+    <key>NSDesktopFolderUsageDescription</key>
+    <string>SaferClaw Transfer saves your backup file to the Desktop.</string>
+    <key>NSDocumentsFolderUsageDescription</key>
+    <string>SaferClaw Transfer may read backup files from your Documents folder.</string>
+    <key>NSDownloadsFolderUsageDescription</key>
+    <string>SaferClaw Transfer may read backup files from your Downloads folder.</string>
+</dict>
+</plist>
