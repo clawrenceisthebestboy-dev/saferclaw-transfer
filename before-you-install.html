@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Before You Install — SaferClaw Transfer</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0f0b09;
+      color: #e8e0d5;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.7;
+      padding: 0 20px 60px;
+    }
+    a { color: #c9a96e; }
+    .hero {
+      text-align: center;
+      padding: 60px 20px 40px;
+      border-bottom: 1px solid rgba(201,169,110,0.15);
+      margin-bottom: 48px;
+    }
+    .logo { font-size: 64px; display: block; margin-bottom: 16px; }
+    h1 {
+      font-family: Georgia, serif;
+      font-size: 2.2rem;
+      color: #c9a96e;
+      margin-bottom: 10px;
+    }
+    .subtitle { color: rgba(255,255,255,0.5); font-size: 1rem; }
+    .intro {
+      max-width: 620px;
+      margin: 0 auto 48px;
+      text-align: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 1.05rem;
+    }
+    .steps { max-width: 660px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+    .step {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,169,110,0.18);
+      border-radius: 16px;
+      padding: 28px 32px;
+      position: relative;
+    }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px; height: 36px;
+      background: rgba(201,169,110,0.18);
+      color: #c9a96e;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 50%;
+      margin-bottom: 12px;
+    }
+    .step h2 {
+      font-family: Georgia, serif;
+      font-size: 1.15rem;
+      color: #c9a96e;
+      margin-bottom: 10px;
+    }
+    .step p { color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 8px; }
+    .step ol, .step ul { padding-left: 22px; color: rgba(255,255,255,0.7); font-size: 0.95rem; }
+    .step li { margin-bottom: 4px; }
+    .tip {
+      margin-top: 12px;
+      background: rgba(201,169,110,0.08);
+      border-left: 3px solid #c9a96e;
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+    }
+    .important { border-color: rgba(201,169,110,0.55); background: rgba(201,169,110,0.06); }
+    .important h2 { font-size: 1.25rem; }
+    .cta-box {
+      max-width: 660px;
+      margin: 40px auto 0;
+      text-align: center;
+      padding: 32px;
+      background: rgba(201,169,110,0.08);
+      border: 1px solid rgba(201,169,110,0.3);
+      border-radius: 16px;
+    }
+    .cta-box p { color: rgba(255,255,255,0.65); margin-bottom: 16px; }
+    .btn {
+      display: inline-block;
+      background: #c9a96e;
+      color: #1a1a1a;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.85; color: #1a1a1a; }
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: rgba(255,255,255,0.25);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <span class="logo">🦞</span>
+    <h1>Before You Install</h1>
+    <p class="subtitle">SaferClaw Transfer — Setup Guide</p>
+  </div>
+
+  <p class="intro">
+    Hey there! 👋 Before you open the app, let's make sure your Mac is ready to go.
+    This takes about <strong style="color:#c9a96e">2 minutes</strong> and will save you
+    a lot of headaches later. Promise!
+  </p>
+
+  <div class="steps">
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <h2>🔑 Make sure you're an Administrator</h2>
+      <p>You need admin rights to install things on your Mac.</p>
+      <ol>
+        <li>Click the <strong>Apple menu</strong> (🍎) in the top-left corner</li>
+        <li>Go to <strong>System Settings → Users &amp; Groups</strong></li>
+        <li>Find your name — it should say <strong>"Admin"</strong> underneath it</li>
+      </ol>
+      <div class="tip">💡 If it doesn't say Admin, ask whoever set up the Mac to help — or contact us!</div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <h2>🔓 Allow apps from identified developers</h2>
+      <p>macOS can be a little overprotective. Let's loosen that up just a tiny bit.</p>
+      <ol>
+        <li>Click <strong>Apple menu → System Settings</strong></li>
+        <li>Go to <strong>Privacy &amp; Security</strong></li>
+        <li>Scroll down to <strong>"Allow apps downloaded from:"</strong></li>
+        <li>Select <strong>"App Store and identified developers"</strong></li>
+      </ol>
+      <div class="tip">✅ This is totally safe — it's the standard setting most Mac users have.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <h2>🛡️ When macOS says it can't verify the app</h2>
+      <p>The first time you open SaferClaw Transfer, macOS might show a warning saying <strong>"Apple cannot verify this app."</strong> Don't panic!</p>
+      <ol>
+        <li>Click <strong>"Open Anyway"</strong> (not Cancel!)</li>
+        <li>If you don't see it — go back to System Settings → Privacy &amp; Security and scroll down. The button will appear there.</li>
+      </ol>
+      <div class="tip">💡 This happens because we're an indie app. The app is completely safe — it's just small-developer stuff!</div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <h2>🤖 Say yes to Automation permissions</h2>
+      <p>When SaferClaw Transfer asks to control other apps (like Terminal), macOS will ask permission.</p>
+      <ol>
+        <li>A popup will appear: <em>"SaferClaw Transfer wants to control Terminal"</em></li>
+        <li>Click <strong>Allow</strong></li>
+      </ol>
+      <div class="tip">✅ This is how the app runs the installer script for you automatically — without it you'd have to do everything by hand.</div>
+    </div>
+
+    <div class="step important">
+      <div class="step-num">5</div>
+      <h2>🚀 Run SaferClaw-Installer.command FIRST</h2>
+      <p><strong>This is the most important step!</strong> The installer sets up everything your Mac needs before you restore.</p>
+      <ol>
+        <li><strong>Double-click</strong> the <code style="background:rgba(255,255,255,0.07);padding:2px 6px;border-radius:4px">SaferClaw-Installer.command</code> file</li>
+        <li>A Terminal window will open</li>
+        <li>Type your <strong>Mac password</strong> when asked (the cursor won't move — that's normal!)</li>
+        <li>Wait for it to say <strong>"DONE!"</strong> before moving on</li>
+      </ol>
+      <div class="tip">⏱️ This usually takes 2–5 minutes depending on your internet speed. Grab a coffee! ☕</div>
+    </div>
+
+    <div class="step important">
+      <div class="step-num">6</div>
+      <h2>✅ NOW open SaferClaw Transfer and click Restore</h2>
+      <p>Once the installer is done:</p>
+      <ol>
+        <li>Open the <strong>SaferClaw Transfer</strong> app</li>
+        <li>Click <strong>"I'm setting up a NEW Mac"</strong></li>
+        <li>Follow the checklist, then click <strong>"I'm Ready — Select Backup File"</strong></li>
+        <li>Pick your backup <code style="background:rgba(255,255,255,0.07);padding:2px 6px;border-radius:4px">.tar.gz</code> file (AirDropped from your old Mac)</li>
+        <li>Sit back and watch the magic happen! 🪄</li>
+      </ol>
+    </div>
+
+  </div>
+
+  <div class="cta-box">
+    <p>Ready to go? Head back to the main page to download SaferClaw Transfer.</p>
+    <a href="index.html" class="btn">🦞 Back to SaferClaw Transfer →</a>
+  </div>
+
+  <footer>
+    Made with ❤️ by the Clawrence team — keeping your Jarvis safe, one Mac at a time.
+  </footer>
+</body>
+</html>
