@@ -10,31 +10,64 @@
 body{background:#0f0b09;color:#fff;font-family:'Lato',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px}
 .logo{font-family:'Playfair Display',serif;font-size:2.4rem;color:#c9a96e;margin-bottom:8px}
 .badge{display:inline-block;background:rgba(201,169,110,.15);border:1px solid #c9a96e;color:#c9a96e;padding:5px 16px;border-radius:20px;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:28px}
-h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,3rem);margin-bottom:16px;line-height:1.2}
-.sub{color:rgba(255,255,255,.6);font-size:1.05rem;max-width:520px;margin:0 auto 40px}
-.steps{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-bottom:44px}
-.step{max-width:160px}
-.step-num{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#c9a96e,#e0bb7c);color:#1a1a1a;font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
-.step h3{font-size:.95rem;margin-bottom:6px}
-.step p{color:rgba(255,255,255,.5);font-size:.82rem}
-.download-btn{display:inline-block;background:#c9a96e;color:#1a1a1a;padding:18px 48px;border-radius:40px;font-size:1.1rem;font-weight:700;text-decoration:none;transition:all .3s;margin-bottom:14px}
-.download-btn:hover{background:#e0bb7c;transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,169,110,.4)}
-.note{color:rgba(255,255,255,.35);font-size:.82rem}
-.req{margin-top:40px;color:rgba(255,255,255,.3);font-size:.8rem}
+h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,2.8rem);margin-bottom:16px;line-height:1.2}
+.sub{color:rgba(255,255,255,.6);font-size:1.05rem;max-width:540px;margin:0 auto 48px}
+.steps{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;max-width:760px}
+.step{background:rgba(255,255,255,.04);border:1px solid rgba(201,169,110,.2);border-radius:16px;padding:24px 20px;max-width:200px;text-align:center}
+.step-num{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#c9a96e,#e0bb7c);color:#1a1a1a;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.step h3{font-size:.95rem;margin-bottom:6px;color:#fff}
+.step p{color:rgba(255,255,255,.45);font-size:.82rem;line-height:1.5}
+.step .cmd{background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:4px 8px;font-family:monospace;font-size:.75rem;color:#c9a96e;margin-top:8px;display:inline-block}
+.downloads{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.btn-primary{display:inline-block;background:#c9a96e;color:#1a1a1a;padding:16px 36px;border-radius:40px;font-size:1rem;font-weight:700;text-decoration:none;transition:all .3s}
+.btn-primary:hover{background:#e0bb7c;transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,169,110,.4)}
+.btn-secondary{display:inline-block;border:1.5px solid #c9a96e;color:#c9a96e;padding:16px 36px;border-radius:40px;font-size:1rem;font-weight:600;text-decoration:none;transition:all .3s}
+.btn-secondary:hover{background:rgba(201,169,110,.1)}
+.note{color:rgba(255,255,255,.3);font-size:.8rem;margin-top:8px}
+.req{margin-top:36px;color:rgba(255,255,255,.25);font-size:.78rem}
 </style>
 </head>
 <body>
 <div class="logo">🦞 SaferClaw</div>
 <div class="badge">Transfer Edition — Free</div>
 <h1>Clone Your OpenClaw Setup<br>to a New Mac in Minutes</h1>
-<p class="sub">Backup everything on your old Mac, AirDrop it over, restore with one click. No account. No license key. Just works.</p>
+<p class="sub">Everything transfers — configs, projects, memory, bots. Backup on old Mac, AirDrop, restore on new Mac. Done.</p>
+
 <div class="steps">
-  <div class="step"><div class="step-num">1</div><h3>Download & Install</h3><p>On both Macs — takes 30 seconds</p></div>
-  <div class="step"><div class="step-num">2</div><h3>Backup</h3><p>Hit Backup on your old Mac — creates one file</p></div>
-  <div class="step"><div class="step-num">3</div><h3>AirDrop & Restore</h3><p>Send it to new Mac, hit Restore — done</p></div>
+  <div class="step">
+    <div class="step-num">1</div>
+    <h3>Run the Installer</h3>
+    <p>Download and double-click the installer. It sets up Homebrew & Node automatically.</p>
+    <span class="cmd">SaferClaw-Installer.command</span>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <h3>Install the App</h3>
+    <p>Download SaferClaw Transfer, open the DMG, drag to Applications.</p>
+    <span class="cmd">SaferClaw-Transfer.dmg</span>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <h3>Backup Old Mac</h3>
+    <p>Open the app on your old Mac and click <strong>Backup This Mac</strong>.</p>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <h3>AirDrop to New Mac</h3>
+    <p>Right-click the backup file → Share → AirDrop → select your new Mac.</p>
+  </div>
+  <div class="step">
+    <div class="step-num">5</div>
+    <h3>Restore</h3>
+    <p>On your new Mac, open the app, click <strong>Restore From Backup</strong>, select the file.</p>
+  </div>
 </div>
-<a href="SaferClaw-Transfer.dmg" class="download-btn">⬇ Download Free — Mac only</a><br>
-<span class="note">macOS 14+ · Apple Silicon · 391 KB</span>
+
+<div class="downloads">
+  <a href="SaferClaw-Installer.command" class="btn-primary">⬇ Step 1 — Download Installer</a>
+  <a href="SaferClaw-Transfer.dmg" class="btn-secondary">⬇ Step 2 — Download App</a>
+</div>
+<p class="note">macOS 14+ · Apple Silicon · No account needed · No license key</p>
 <p class="req">Requires macOS Sonoma 14 or later · Apple Silicon (M1/M2/M3/M4)</p>
 </body>
 </html>
