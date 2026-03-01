@@ -1,196 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SaferClaw Transfer — Free Mac-to-Mac Clone Tool</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>SaferClaw Transfer — Free Clone Tool</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;600&display=swap" rel="stylesheet"/>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: #1a1a1a;
-    color: #fff;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .nav {
-    width: 100%;
-    padding: 18px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid rgba(201,169,110,0.15);
-  }
-  .nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-    text-decoration: none;
-  }
-  .badge {
-    background: #c9a96e;
-    color: #1a1a1a;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 20px;
-    letter-spacing: 0.3px;
-  }
-  .hero {
-    max-width: 720px;
-    width: 100%;
-    text-align: center;
-    padding: 80px 24px 60px;
-  }
-  .lobster { font-size: 72px; margin-bottom: 20px; display: block; }
-  h1 {
-    font-size: clamp(28px, 5vw, 48px);
-    font-weight: 800;
-    line-height: 1.15;
-    margin-bottom: 16px;
-  }
-  h1 span { color: #c9a96e; }
-  .subhead {
-    font-size: 18px;
-    color: rgba(255,255,255,0.6);
-    max-width: 500px;
-    margin: 0 auto 40px;
-    line-height: 1.6;
-  }
-  .download-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: #c9a96e;
-    color: #1a1a1a;
-    font-size: 18px;
-    font-weight: 700;
-    padding: 16px 36px;
-    border-radius: 12px;
-    text-decoration: none;
-    transition: opacity 0.2s, transform 0.1s;
-    margin-bottom: 14px;
-  }
-  .download-btn:hover { opacity: 0.9; transform: translateY(-1px); }
-  .download-meta {
-    font-size: 12px;
-    color: rgba(255,255,255,0.3);
-    margin-bottom: 60px;
-  }
-  .steps {
-    display: flex;
-    gap: 0;
-    align-items: stretch;
-    justify-content: center;
-    max-width: 680px;
-    width: 100%;
-    margin: 0 auto 80px;
-  }
-  .step {
-    flex: 1;
-    background: rgba(201,169,110,0.07);
-    border: 1px solid rgba(201,169,110,0.2);
-    border-radius: 12px;
-    padding: 28px 20px;
-    text-align: center;
-    margin: 0 8px;
-  }
-  .step-num {
-    width: 36px;
-    height: 36px;
-    background: #c9a96e;
-    color: #1a1a1a;
-    border-radius: 50%;
-    font-size: 16px;
-    font-weight: 800;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 14px;
-  }
-  .step h3 { font-size: 15px; margin-bottom: 6px; }
-  .step p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.5; }
-  .arrow { color: rgba(201,169,110,0.4); font-size: 20px; display: flex; align-items: center; }
-  .guarantee {
-    font-size: 14px;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 80px;
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .guarantee span { display: flex; align-items: center; gap: 6px; }
-  .guarantee .dot { color: #c9a96e; }
-  footer {
-    margin-top: auto;
-    padding: 24px;
-    text-align: center;
-    font-size: 13px;
-    color: rgba(255,255,255,0.2);
-    border-top: 1px solid rgba(255,255,255,0.05);
-    width: 100%;
-  }
-  footer a { color: #c9a96e; text-decoration: none; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f0b09;color:#fff;font-family:'Lato',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px}
+.logo{font-family:'Playfair Display',serif;font-size:2.4rem;color:#c9a96e;margin-bottom:8px}
+.badge{display:inline-block;background:rgba(201,169,110,.15);border:1px solid #c9a96e;color:#c9a96e;padding:5px 16px;border-radius:20px;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:28px}
+h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,3rem);margin-bottom:16px;line-height:1.2}
+.sub{color:rgba(255,255,255,.6);font-size:1.05rem;max-width:520px;margin:0 auto 40px}
+.steps{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-bottom:44px}
+.step{max-width:160px}
+.step-num{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#c9a96e,#e0bb7c);color:#1a1a1a;font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.step h3{font-size:.95rem;margin-bottom:6px}
+.step p{color:rgba(255,255,255,.5);font-size:.82rem}
+.download-btn{display:inline-block;background:#c9a96e;color:#1a1a1a;padding:18px 48px;border-radius:40px;font-size:1.1rem;font-weight:700;text-decoration:none;transition:all .3s;margin-bottom:14px}
+.download-btn:hover{background:#e0bb7c;transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,169,110,.4)}
+.note{color:rgba(255,255,255,.35);font-size:.82rem}
+.req{margin-top:40px;color:rgba(255,255,255,.3);font-size:.8rem}
 </style>
 </head>
 <body>
-
-<nav class="nav">
-  <a class="nav-brand" href="#">
-    🦞 SaferClaw Transfer
-  </a>
-  <span class="badge">Free</span>
-</nav>
-
-<div class="hero">
-  <span class="lobster">🦞</span>
-  <h1>SaferClaw Transfer<br><span>Free One-Time Clone Tool</span></h1>
-  <p class="subhead">Clone your entire OpenClaw setup from one Mac to another in minutes. No account needed. No license key. Just works.</p>
-
-  <a class="download-btn" href="SaferClaw-Transfer.dmg">
-    ⬇ Download for Mac — Free
-  </a>
-  <div class="download-meta">macOS 14+ · Apple Silicon · ~1 MB</div>
-</div>
-
+<div class="logo">🦞 SaferClaw</div>
+<div class="badge">Transfer Edition — Free</div>
+<h1>Clone Your OpenClaw Setup<br>to a New Mac in Minutes</h1>
+<p class="sub">Backup everything on your old Mac, AirDrop it over, restore with one click. No account. No license key. Just works.</p>
 <div class="steps">
-  <div class="step">
-    <div class="step-num">1</div>
-    <h3>Backup</h3>
-    <p>Run SaferClaw Transfer on your old Mac. Click "Backup This Mac" — it packages everything into one .tar.gz file on your Desktop.</p>
-  </div>
-  <div class="arrow">→</div>
-  <div class="step">
-    <div class="step-num">2</div>
-    <h3>AirDrop</h3>
-    <p>AirDrop the backup file to your new Mac. Takes about 30 seconds. No cloud upload needed.</p>
-  </div>
-  <div class="arrow">→</div>
-  <div class="step">
-    <div class="step-num">3</div>
-    <h3>Restore</h3>
-    <p>Open SaferClaw Transfer on your new Mac. Click "Restore From Backup" — it reinstalls everything and gets OpenClaw running.</p>
-  </div>
+  <div class="step"><div class="step-num">1</div><h3>Download & Install</h3><p>On both Macs — takes 30 seconds</p></div>
+  <div class="step"><div class="step-num">2</div><h3>Backup</h3><p>Hit Backup on your old Mac — creates one file</p></div>
+  <div class="step"><div class="step-num">3</div><h3>AirDrop & Restore</h3><p>Send it to new Mac, hit Restore — done</p></div>
 </div>
-
-<div class="guarantee">
-  <span><span class="dot">✓</span> No account needed</span>
-  <span><span class="dot">✓</span> No license key</span>
-  <span><span class="dot">✓</span> No cloud upload</span>
-  <span><span class="dot">✓</span> Completely free</span>
-  <span><span class="dot">✓</span> Open source</span>
-</div>
-
-<footer>
-  <p>SaferClaw Transfer is a free companion tool for <a href="https://saferclaw.com">SaferClaw</a>.<br>
-  © 2025 SaferClaw · <a href="https://github.com/clawrenceisthebestboy-dev/saferclaw-transfer">View on GitHub</a></p>
-</footer>
-
+<a href="SaferClaw-Transfer.dmg" class="download-btn">⬇ Download Free — Mac only</a><br>
+<span class="note">macOS 14+ · Apple Silicon · 391 KB</span>
+<p class="req">Requires macOS Sonoma 14 or later · Apple Silicon (M1/M2/M3/M4)</p>
 </body>
 </html>
