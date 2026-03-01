@@ -9,39 +9,25 @@ struct ContentView: View {
     
     enum Operation { case backup, restore }
     
-    var currentManager: (any OperationManager)? {
-        switch activeOperation {
-        case .backup: return backupManager
-        case .restore: return restoreManager
-        case nil: return nil
-        }
-    }
-    
     var body: some View {
         ZStack {
             Color(hex: "#1a1a1a").ignoresSafeArea()
             
             VStack(spacing: 0) {
-                // Header
                 headerView
-                
                 Divider().background(Color(hex: "#c9a96e").opacity(0.3))
-                
-                // Instructions
                 instructionsView
-                
                 Divider().background(Color(hex: "#c9a96e").opacity(0.3))
                 
-                // Main buttons
                 if activeOperation == nil {
                     buttonsView
+                } else if activeOperation == .restore && restoreManager.isComplete {
+                    successView
                 } else {
                     progressView
                 }
                 
                 Spacer()
-                
-                // Footer
                 footerView
             }
         }
@@ -133,7 +119,6 @@ struct ContentView: View {
     
     var buttonsView: some View {
         HStack(spacing: 20) {
-            // Backup Button
             Button(action: {
                 activeOperation = .backup
                 backupManager.start()
@@ -142,11 +127,9 @@ struct ContentView: View {
                     Image(systemName: "arrow.up.doc.fill")
                         .font(.system(size: 36))
                         .foregroundColor(Color(hex: "#c9a96e"))
-                    
                     Text("Backup This Mac")
                         .font(.system(size: 18, weight: .bold, design: .rounded))
                         .foregroundColor(.white)
-                    
                     Text("Packages your OpenClaw setup\ninto a single .tar.gz file")
                         .font(.system(size: 12))
                         .foregroundColor(.white.opacity(0.55))
@@ -155,28 +138,20 @@ struct ContentView: View {
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 30)
                 .background(Color(hex: "#c9a96e").opacity(0.1))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 16)
-                        .stroke(Color(hex: "#c9a96e").opacity(0.3), lineWidth: 1.5)
-                )
+                .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color(hex: "#c9a96e").opacity(0.3), lineWidth: 1.5))
                 .clipShape(RoundedRectangle(cornerRadius: 16))
             }
             .buttonStyle(.plain)
             .contentShape(Rectangle())
             
-            // Restore Button
-            Button(action: {
-                showingRestorePicker = true
-            }) {
+            Button(action: { showingRestorePicker = true }) {
                 VStack(spacing: 14) {
                     Image(systemName: "arrow.down.doc.fill")
                         .font(.system(size: 36))
                         .foregroundColor(Color(hex: "#c9a96e"))
-                    
                     Text("Restore From Backup")
                         .font(.system(size: 18, weight: .bold, design: .rounded))
                         .foregroundColor(.white)
-                    
                     Text("Extracts your backup and\nreinstalls OpenClaw if needed")
                         .font(.system(size: 12))
                         .foregroundColor(.white.opacity(0.55))
@@ -185,10 +160,7 @@ struct ContentView: View {
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 30)
                 .background(Color(hex: "#c9a96e").opacity(0.1))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 16)
-                        .stroke(Color(hex: "#c9a96e").opacity(0.3), lineWidth: 1.5)
-                )
+                .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color(hex: "#c9a96e").opacity(0.3), lineWidth: 1.5))
                 .clipShape(RoundedRectangle(cornerRadius: 16))
             }
             .buttonStyle(.plain)
@@ -198,9 +170,61 @@ struct ContentView: View {
         .padding(.top, 28)
     }
     
+    // 🎉 Success screen shown after restore completes
+    var successView: some View {
+        VStack(spacing: 24) {
+            Spacer()
+            
+            Text("🎉")
+                .font(.system(size: 72))
+            
+            VStack(spacing: 8) {
+                Text("Jarvis is ready!")
+                    .font(.system(size: 28, weight: .bold, design: .rounded))
+                    .foregroundColor(.white)
+                Text("OpenClaw is running on your new Mac.")
+                    .font(.system(size: 14))
+                    .foregroundColor(.white.opacity(0.6))
+            }
+            
+            // Open OpenClaw button
+            Button(action: {
+                if let url = URL(string: "http://localhost:18789") {
+                    NSWorkspace.shared.open(url)
+                }
+            }) {
+                HStack(spacing: 10) {
+                    Image(systemName: "globe")
+                        .font(.system(size: 16, weight: .semibold))
+                    Text("Open OpenClaw")
+                        .font(.system(size: 16, weight: .semibold))
+                }
+                .foregroundColor(Color(hex: "#1a1a1a"))
+                .padding(.horizontal, 32)
+                .padding(.vertical, 14)
+                .background(Color(hex: "#c9a96e"))
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+            }
+            .buttonStyle(.plain)
+            
+            Button(action: { activeOperation = nil }) {
+                Text("← Start Over")
+                    .font(.system(size: 13))
+                    .foregroundColor(.white.opacity(0.4))
+            }
+            .buttonStyle(.plain)
+            
+            Spacer()
+        }
+        .padding(.horizontal, 28)
+        .frame(maxWidth: .infinity)
+    }
+    
     var progressView: some View {
         VStack(alignment: .leading, spacing: 16) {
-            let manager = activeOperation == .backup ? backupManager as (any OperationManager) : restoreManager as (any OperationManager)
+            let manager: any OperationManager = activeOperation == .backup
+                ? backupManager as (any OperationManager)
+                : restoreManager as (any OperationManager)
             
             HStack {
                 Image(systemName: activeOperation == .backup ? "arrow.up.doc.fill" : "arrow.down.doc.fill")
@@ -238,25 +262,33 @@ struct ContentView: View {
             }
             .frame(height: 6)
             
-            // Log
+            // Log display — explicit black background with white text
             ScrollViewReader { proxy in
                 ScrollView {
                     VStack(alignment: .leading, spacing: 4) {
                         ForEach(manager.logs.indices, id: \.self) { i in
                             Text(manager.logs[i])
                                 .font(.system(size: 11, design: .monospaced))
-                                .foregroundColor(manager.logs[i].hasPrefix("✅") ? .green :
-                                               manager.logs[i].hasPrefix("❌") ? .red :
-                                               manager.logs[i].hasPrefix("⚡") ? Color(hex: "#c9a96e") :
-                                               .white.opacity(0.7))
+                                .foregroundColor(
+                                    manager.logs[i].hasPrefix("✅") ? Color.green :
+                                    manager.logs[i].hasPrefix("❌") ? Color.red :
+                                    manager.logs[i].hasPrefix("⚡") ? Color(hex: "#c9a96e") :
+                                    manager.logs[i].hasPrefix("⚠️") ? Color.orange :
+                                    Color.white
+                                )
+                                .frame(maxWidth: .infinity, alignment: .leading)
                                 .id(i)
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(10)
                 }
-                .frame(height: 160)
-                .background(Color.black.opacity(0.3))
+                .frame(height: 180)
+                .background(Color(red: 0.05, green: 0.05, blue: 0.05))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.white.opacity(0.1), lineWidth: 1)
+                )
                 .clipShape(RoundedRectangle(cornerRadius: 8))
                 .onChange(of: manager.logs.count) { _ in
                     if let last = manager.logs.indices.last {
